@@ -7,7 +7,7 @@ export type Heart3DProps = {
   position: [number, number, number];
   scale?: number;
   speed?: number;
-  tint?: "emerald" | "ivory";
+  tint?: "pink" | "ivory";
   /** Shared pointer ref in [-1,1] space. */
   pointer?: React.RefObject<{ x: number; y: number }>;
   /** Vertical travel range before looping back to the bottom. */
@@ -19,7 +19,7 @@ export function Heart3D({
   position,
   scale = 1,
   speed = 0.35,
-  tint = "emerald",
+  tint = "pink",
   pointer,
   range = 9,
 }: Heart3DProps) {
@@ -44,14 +44,14 @@ export function Heart3D({
     m.position.z += (position[2] + py * 0.4 - m.position.z) * 0.03;
   });
 
-  const emerald = tint === "emerald";
+  const pink = tint === "pink";
 
   return (
     <mesh ref={mesh} geometry={geometry} position={position} scale={scale}>
       <meshPhysicalMaterial
-        color={emerald ? "#1B9D4A" : "#F4FFF7"}
-        emissive={emerald ? "#1B9D4A" : "#BFF3D2"}
-        emissiveIntensity={emerald ? 0.8 : 0.32}
+        color={pink ? "#E88EAA" : "#FFF3F6"}
+        emissive={pink ? "#E88EAA" : "#FFDCE6"}
+        emissiveIntensity={pink ? 0.8 : 0.32}
         roughness={0.15}
         metalness={0.2}
         clearcoat={1}

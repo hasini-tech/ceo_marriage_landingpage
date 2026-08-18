@@ -30,9 +30,9 @@ export function LoveStory() {
                   i % 2 ? "md:col-start-2" : "md:col-start-1 md:text-right"
                 }`}
               >
-                <p className="text-xs tracking-[0.3em] text-accent uppercase">{step.date}</p>
-                <h3 className="font-display mt-2 text-2xl font-light">{step.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed font-light text-foreground/75">{step.text}</p>
+                <p className="text-readable text-xs font-semibold tracking-[0.3em] text-foreground uppercase">{step.date}</p>
+                <h3 className="font-display text-readable mt-2 text-2xl font-medium text-foreground">{step.title}</h3>
+                <p className="text-readable mt-3 text-sm leading-relaxed font-medium text-foreground">{step.text}</p>
               </motion.article>
             </li>
           ))}

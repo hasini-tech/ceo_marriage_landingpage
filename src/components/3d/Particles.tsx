@@ -4,8 +4,8 @@ import * as THREE from "three";
 
 type ParticlesProps = { count: number; color?: string; size?: number; spread?: number };
 
-/** Soft drifting motes of light (green glow / white petals). */
-export function Particles({ count, color = "#7BE8A6", size = 0.07, spread = 16 }: ParticlesProps) {
+/** Soft drifting motes of light (pink glow / white petals). */
+export function Particles({ count, color = "#F5A9BE", size = 0.07, spread = 16 }: ParticlesProps) {
   const points = useRef<THREE.Points>(null);
 
   const positions = useMemo(() => {

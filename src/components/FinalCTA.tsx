@@ -28,7 +28,7 @@ export function FinalCTA() {
               <StudioEnv intensity={0.6} />
               <ambientLight intensity={0.9} />
               <directionalLight position={[3, 5, 5]} intensity={2} />
-              <pointLight position={[-4, 0, 3]} intensity={40} color="#1B9D4A" distance={18} />
+              <pointLight position={[-4, 0, 3]} intensity={40} color="#E88EAA" distance={18} />
               {Array.from({ length: hearts }).map((_, i) => (
                 <FloatingHeart
                   key={i}
@@ -36,7 +36,7 @@ export function FinalCTA() {
                   position={[((i % 4) - 1.5) * 3.6, ((i * 2.3) % 8) - 4, -4 - (i % 3) * 1.4]}
                   scale={0.26 + (i % 3) * 0.12}
                   speed={0.22 + (i % 3) * 0.1}
-                  tint={i % 2 ? "emerald" : "ivory"}
+                  tint={i % 2 ? "pink" : "ivory"}
                 />
               ))}
               {!compact &&
@@ -49,7 +49,7 @@ export function FinalCTA() {
                     contains={i === 1 ? "flower" : "heart"}
                   />
                 ))}
-              <Particles count={compact ? 60 : 180} color="#7BE8A6" />
+              <Particles count={compact ? 60 : 180} color="#F5A9BE" />
               <Particles count={compact ? 30 : 90} color="#FFFFFF" size={0.11} spread={14} />
             </Suspense>
           </Canvas>
@@ -63,10 +63,10 @@ export function FinalCTA() {
         transition={{ duration: 1 }}
         className="relative z-10 max-w-2xl"
       >
-        <h2 className="font-display text-glow text-4xl leading-tight font-light text-balance sm:text-6xl">
+        <h2 className="font-display text-readable text-glow text-4xl leading-tight font-medium text-foreground text-balance sm:text-6xl">
           Forever Starts Here ❤️
         </h2>
-        <p className="mx-auto mt-5 max-w-md text-base font-light text-foreground/75">
+        <p className="text-readable mx-auto mt-5 max-w-md text-base font-medium text-foreground">
           Join us at {COUPLE.venue} as we begin the rest of our lives together.
         </p>
         <motion.a
@@ -75,15 +75,19 @@ export function FinalCTA() {
           whileTap={{ scale: 0.97 }}
           transition={{ type: "spring", stiffness: 300, damping: 18 }}
           style={{ transformStyle: "preserve-3d", perspective: 600 }}
-          className="glow-emerald mt-10 inline-flex rounded-full bg-primary px-10 py-4 text-sm font-medium tracking-[0.18em] text-primary-foreground uppercase"
+          className="glow-pink mt-10 inline-flex rounded-full bg-primary px-10 py-4 text-sm font-medium tracking-[0.18em] text-primary-foreground uppercase"
         >
           Celebrate With Us
         </motion.a>
 
-        <p className="mt-16 text-xs tracking-[0.4em] text-foreground/45 uppercase">
+        <p className="text-readable mt-16 text-xs font-semibold tracking-[0.4em] text-foreground uppercase">
           {COUPLE.names} · With love
         </p>
       </motion.div>
+
+      <footer className="text-readable absolute inset-x-0 bottom-6 z-10 px-5 text-center text-[11px] font-semibold tracking-[0.28em] text-foreground uppercase">
+        Powered by Techvaseegrah Team
+      </footer>
     </section>
   );
 }

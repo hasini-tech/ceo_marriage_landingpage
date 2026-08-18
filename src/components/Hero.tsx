@@ -1,72 +1,73 @@
 import { motion } from "framer-motion";
-import couple from "@/assets/couple.png";
+
+import lovelyPic from "@/assets/lovelypic.png";
 import { COUPLE, HERO } from "@/config/love";
 
 export function Hero() {
   return (
     <section
       id="home"
-      className="relative flex min-h-[100svh] flex-col items-center justify-end overflow-hidden px-5 pt-28 pb-16 text-center"
+      className="relative isolate flex min-h-[100svh] items-center overflow-hidden px-3 pt-28 pb-12 sm:px-6 sm:pt-32 md:px-8 md:pb-16"
     >
-      <motion.img
-        src={couple}
-        alt="A romantic couple in traditional attire standing in the temple entrance"
-        width={1024}
-        height={1280}
-        initial={{ opacity: 0, scale: 1.06, y: 30 }}
-        animate={{ opacity: 1, scale: 1, y: 0 }}
-        transition={{ duration: 1.6, ease: "easeOut" }}
-        className="pointer-events-none absolute bottom-0 left-1/2 h-[70svh] w-auto -translate-x-1/2 object-contain drop-shadow-[0_0_80px_oklch(0.57_0.15_152/0.55)] md:h-[82svh]"
-      />
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-2/3 bg-[linear-gradient(180deg,transparent,oklch(0.1_0.03_155/0.85))]" />
-
-      <motion.div
-        initial="hidden"
-        animate="show"
-        variants={{ hidden: {}, show: { transition: { staggerChildren: 0.18, delayChildren: 0.4 } } }}
-        className="relative z-10 max-w-3xl"
-      >
-        <motion.p
-          variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } }}
-          className="mb-5 text-xs tracking-[0.45em] text-accent uppercase"
+      <div className="mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-8 md:grid-cols-2 md:gap-12 lg:gap-20">
+        <motion.div
+          initial={{ opacity: 0, x: -32, scale: 0.97 }}
+          animate={{ opacity: 1, x: 0, scale: 1 }}
+          transition={{ duration: 1.1, ease: "easeOut" }}
+          className="relative order-1 flex w-full items-center justify-center"
         >
-          {COUPLE.names}
-        </motion.p>
-
-        <motion.h1
-          variants={{ hidden: { opacity: 0, y: 28 }, show: { opacity: 1, y: 0 } }}
-          transition={{ duration: 0.9 }}
-          className="font-display text-glow text-4xl leading-[1.1] font-light text-balance sm:text-6xl md:text-7xl"
-        >
-          {HERO.heading}
-        </motion.h1>
-
-        <motion.p
-          variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } }}
-          className="mx-auto mt-6 max-w-md text-base font-light text-foreground/75 sm:text-lg"
-        >
-          {HERO.subheading}
-        </motion.p>
-
-        <motion.div variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } }} className="mt-10">
-          <motion.a
-            href="#story"
-            whileHover={{ scale: 1.05, rotateX: -8, rotateY: 6 }}
-            whileTap={{ scale: 0.97 }}
-            transition={{ type: "spring", stiffness: 300, damping: 18 }}
-            style={{ transformStyle: "preserve-3d", perspective: 600 }}
-            className="glow-emerald inline-flex items-center gap-3 rounded-full bg-primary px-9 py-4 text-sm font-medium tracking-[0.18em] text-primary-foreground uppercase"
-          >
-            {HERO.cta}
-            <span aria-hidden>→</span>
-          </motion.a>
+          <div className="absolute h-[72%] w-[72%] rounded-full bg-[oklch(0.86_0.13_350/0.24)] blur-3xl" />
+          <img
+            src={lovelyPic}
+            alt="A couple sharing a romantic moment"
+            width={1536}
+            height={1024}
+            className="relative z-10 block aspect-[4/3] h-auto w-full max-w-2xl rounded-[1.5rem] object-cover object-center mix-blend-lighten drop-shadow-[0_0_70px_oklch(0.68_0.16_350/0.45)] sm:rounded-[2.5rem]"
+          />
         </motion.div>
-      </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, x: 32, y: 16 }}
+          animate={{ opacity: 1, x: 0, y: 0 }}
+          transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
+          className="relative z-20 order-2 mx-auto w-full max-w-xl p-2 text-center sm:p-6 md:mx-0 md:pl-8 md:text-left lg:pl-12"
+        >
+          <div className="pointer-events-none absolute inset-x-[-0.75rem] inset-y-[-1rem] -z-10 bg-[radial-gradient(ellipse_at_center,oklch(0.99_0.03_350/0.62)_0%,transparent_72%)]" />
+
+          <p className="text-readable mb-4 text-xs font-semibold tracking-[0.28em] text-foreground uppercase sm:tracking-[0.45em]">
+            {COUPLE.names}
+          </p>
+
+          <h1 className="font-display text-readable text-4xl leading-[1.05] font-medium text-foreground text-balance sm:text-6xl md:text-7xl">
+            {HERO.heading}
+          </h1>
+
+          <p className="text-readable mx-auto mt-5 max-w-md text-sm font-medium leading-relaxed text-foreground sm:text-lg md:mx-0 md:mt-6">
+            {HERO.subheading}
+          </p>
+
+          <div className="mt-8 sm:mt-10">
+            <motion.a
+              href="#story"
+              whileHover={{ scale: 1.05, rotateX: -8, rotateY: 6 }}
+              whileTap={{ scale: 0.97 }}
+              transition={{ type: "spring", stiffness: 300, damping: 18 }}
+              style={{ transformStyle: "preserve-3d", perspective: 600 }}
+              className="glow-pink inline-flex min-h-14 w-full items-center justify-center gap-2 whitespace-nowrap rounded-full bg-primary px-5 py-4 text-xs leading-none font-medium tracking-[0.12em] text-primary-foreground uppercase sm:w-auto sm:gap-3 sm:px-9 sm:text-sm sm:tracking-[0.18em]"
+            >
+              {HERO.cta}
+              <span aria-hidden="true" className="shrink-0 text-base leading-none sm:text-lg">
+                &rarr;
+              </span>
+            </motion.a>
+          </div>
+        </motion.div>
+      </div>
 
       <motion.div
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
-        className="relative z-10 mt-12 h-10 w-[1px] bg-[linear-gradient(180deg,var(--color-accent),transparent)]"
+        className="absolute bottom-5 left-1/2 hidden h-10 w-px -translate-x-1/2 bg-[linear-gradient(180deg,var(--color-accent),transparent)] md:block"
       />
     </section>
   );

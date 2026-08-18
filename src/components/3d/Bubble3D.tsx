@@ -26,12 +26,12 @@ function FlowerCore() {
           ]}
         >
           <sphereGeometry args={[0.11, 12, 12]} />
-          <meshStandardMaterial color="#FFFFFF" emissive="#DDFFE9" emissiveIntensity={0.35} roughness={0.4} />
+          <meshStandardMaterial color="#FFFFFF" emissive="#FFE1E9" emissiveIntensity={0.35} roughness={0.4} />
         </mesh>
       ))}
       <mesh>
         <sphereGeometry args={[0.09, 12, 12]} />
-        <meshStandardMaterial color="#1B9D4A" emissive="#1B9D4A" emissiveIntensity={0.9} />
+        <meshStandardMaterial color="#E88EAA" emissive="#E88EAA" emissiveIntensity={0.9} />
       </mesh>
     </group>
   );
@@ -78,8 +78,8 @@ export function Bubble3D({
           clearcoatRoughness={0}
           iridescence={0.5}
           iridescenceIOR={1.2}
-          color="#EAFFF2"
-          attenuationColor="#1B9D4A"
+          color="#FFF0F4"
+          attenuationColor="#E88EAA"
           attenuationDistance={2.4}
           transparent
           opacity={0.55}
@@ -89,14 +89,14 @@ export function Bubble3D({
       <group ref={inner} scale={radius * 0.75}>
         {contains === "heart" && (
           <mesh geometry={heart} scale={0.7}>
-            <meshStandardMaterial color="#1B9D4A" emissive="#1B9D4A" emissiveIntensity={0.7} roughness={0.2} />
+            <meshStandardMaterial color="#E88EAA" emissive="#E88EAA" emissiveIntensity={0.7} roughness={0.2} />
           </mesh>
         )}
         {contains === "flower" && <FlowerCore />}
         {contains === "memory" && (
           <mesh rotation={[0, 0, 0.2]}>
             <boxGeometry args={[0.5, 0.62, 0.03]} />
-            <meshStandardMaterial color="#FFFFFF" emissive="#CFF6DE" emissiveIntensity={0.3} roughness={0.35} />
+            <meshStandardMaterial color="#FFFFFF" emissive="#FFDCE7" emissiveIntensity={0.3} roughness={0.35} />
           </mesh>
         )}
       </group>

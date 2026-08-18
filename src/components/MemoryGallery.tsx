@@ -39,7 +39,7 @@ function TiltCard({ src, caption, note, index }: (typeof MEMORIES)[number] & { i
       transition={{ duration: 0.8, delay: index * 0.1 }}
       animate={{ rotateX: tilt.x, rotateY: tilt.y, scale: tilt.x || tilt.y ? 1.04 : 1 }}
       style={{ transformStyle: "preserve-3d", perspective: 900 }}
-      className="glass-emerald group relative overflow-hidden rounded-3xl p-3"
+      className="glass-pink group relative overflow-hidden rounded-3xl p-3"
     >
       <div className="overflow-hidden rounded-2xl">
         <img
@@ -52,8 +52,8 @@ function TiltCard({ src, caption, note, index }: (typeof MEMORIES)[number] & { i
         />
       </div>
       <div className="flex items-baseline justify-between px-2 pt-4 pb-2" style={{ transform: "translateZ(40px)" }}>
-        <span className="font-display text-lg font-light">{caption}</span>
-        <span className="text-[0.65rem] tracking-[0.25em] text-accent uppercase">{note}</span>
+        <span className="font-display text-readable text-lg font-medium text-foreground">{caption}</span>
+        <span className="text-readable text-[0.65rem] font-semibold tracking-[0.25em] text-foreground uppercase">{note}</span>
       </div>
     </motion.div>
   );

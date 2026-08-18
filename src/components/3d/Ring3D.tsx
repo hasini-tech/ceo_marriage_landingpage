@@ -23,12 +23,12 @@ export function Ring3D({ pointer }: { pointer?: React.RefObject<{ x: number; y: 
       <mesh rotation={[Math.PI / 2, 0, 0]}>
         <torusGeometry args={[1.15, 0.13, 48, 128]} />
         <meshPhysicalMaterial
-          color="#F7FFFA"
+          color="#FFF6F8"
           metalness={0.25}
           roughness={0.18}
           clearcoat={1}
           clearcoatRoughness={0.05}
-          emissive="#1B9D4A"
+          emissive="#E88EAA"
           emissiveIntensity={0.35}
           envMapIntensity={2}
         />
@@ -45,18 +45,18 @@ export function Ring3D({ pointer }: { pointer?: React.RefObject<{ x: number; y: 
             iridescence={1}
             iridescenceIOR={1.6}
             clearcoat={1}
-            color="#F2FFF7"
-            attenuationColor="#8FF0B8"
+            color="#FFF3F6"
+            attenuationColor="#FFD1DE"
             attenuationDistance={1.4}
           />
         </mesh>
         <mesh position={[0, -0.32, 0]} rotation={[Math.PI, 0, 0]}>
           <coneGeometry args={[0.3, 0.34, 8]} />
           <meshPhysicalMaterial
-            color="#F7FFFA"
+            color="#FFF6F8"
             metalness={0.25}
             roughness={0.2}
-            emissive="#1B9D4A"
+            emissive="#E88EAA"
             emissiveIntensity={0.3}
             envMapIntensity={2}
           />

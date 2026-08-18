@@ -37,19 +37,19 @@ export function Countdown() {
             viewport={{ once: true, amount: 0.4 }}
             transition={{ duration: 0.6, delay: i * 0.1 }}
             whileHover={{ y: -6 }}
-            className="glass-emerald rounded-3xl px-4 py-8"
+            className="glass-pink rounded-3xl px-4 py-8"
           >
-            <span className="font-display text-glow block text-4xl leading-none text-accent tabular-nums sm:text-6xl">
+            <span className="font-display text-readable text-glow block text-4xl leading-none font-medium text-foreground tabular-nums sm:text-6xl">
               {String(value).padStart(2, "0")}
             </span>
-            <span className="mt-3 block text-[0.65rem] tracking-[0.35em] text-foreground/80 uppercase">
+            <span className="text-readable mt-3 block text-[0.65rem] font-semibold tracking-[0.35em] text-foreground uppercase">
               {label}
             </span>
           </motion.div>
         ))}
       </div>
 
-      <p className="mt-8 text-sm font-light text-foreground/65">{EVENT_DATE_LABEL}</p>
+      <p className="text-readable mt-8 text-sm font-medium text-foreground">{EVENT_DATE_LABEL}</p>
     </section>
   );
 }

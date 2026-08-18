@@ -15,7 +15,7 @@ export function Navbar() {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
-        scrolled ? "glass py-3" : "bg-transparent py-5"
+        scrolled ? "glass-pink py-3 shadow-[0_8px_30px_oklch(0.35_0.08_350/0.12)]" : "glass-pink py-4"
       }`}
     >
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-5">
@@ -29,7 +29,7 @@ export function Navbar() {
             <li key={link.href}>
               <a
                 href={link.href}
-                className="group relative text-sm font-light tracking-widest text-foreground/80 uppercase transition-colors hover:text-accent"
+                className="group relative text-sm font-light tracking-widest text-foreground/80 uppercase transition-colors hover:text-foreground"
               >
                 {link.label}
                 <span className="absolute -bottom-1 left-0 h-px w-0 bg-accent transition-all duration-300 group-hover:w-full" />
@@ -41,7 +41,7 @@ export function Navbar() {
         <button
           aria-label="Toggle navigation"
           onClick={() => setOpen((o) => !o)}
-          className="glass-emerald flex h-10 w-10 flex-col items-center justify-center gap-1.5 rounded-full md:hidden"
+          className="glass-pink flex h-10 w-10 flex-col items-center justify-center gap-1.5 rounded-full md:hidden"
         >
           <span className="block h-px w-4 bg-foreground" />
           <span className="block h-px w-4 bg-foreground" />

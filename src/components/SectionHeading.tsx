@@ -10,8 +10,8 @@ export function SectionHeading({ kicker, title }: { kicker?: string; title: Reac
       transition={{ duration: 0.8 }}
       className="mb-14 text-center"
     >
-      {kicker && <p className="mb-4 text-xs tracking-[0.45em] text-accent uppercase">{kicker}</p>}
-      <h2 className="font-display text-glow text-3xl font-light text-balance sm:text-5xl">{title}</h2>
+      {kicker && <p className="text-readable mb-4 text-xs font-semibold tracking-[0.45em] text-foreground uppercase">{kicker}</p>}
+      <h2 className="font-display text-readable text-glow text-3xl font-medium text-foreground text-balance sm:text-5xl">{title}</h2>
       <span className="mx-auto mt-6 block h-px w-24 bg-[linear-gradient(90deg,transparent,var(--color-accent),transparent)]" />
     </motion.div>
   );
