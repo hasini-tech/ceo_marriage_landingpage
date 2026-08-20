@@ -2,7 +2,7 @@ import { Canvas } from "@react-three/fiber";
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import { Suspense } from "react";
 
-import templeBg from "@/assets/bg.png";
+import templeBg from "@/assets/bgtemp.png";
 import lovelyPic from "@/assets/lovelypic.png";
 import { FloatingHeart } from "@/components/FloatingHeart";
 import { LoveBubble } from "@/components/LoveBubble";

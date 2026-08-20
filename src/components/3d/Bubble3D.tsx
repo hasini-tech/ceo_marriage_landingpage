@@ -89,7 +89,7 @@ export function Bubble3D({
       <group ref={inner} scale={radius * 0.75}>
         {contains === "heart" && (
           <mesh geometry={heart} scale={0.7}>
-            <meshStandardMaterial color="#E88EAA" emissive="#E88EAA" emissiveIntensity={0.7} roughness={0.2} />
+            <meshStandardMaterial color="#8B1E4B" emissive="#5B0B2B" emissiveIntensity={0.55} roughness={0.2} />
           </mesh>
         )}
         {contains === "flower" && <FlowerCore />}
