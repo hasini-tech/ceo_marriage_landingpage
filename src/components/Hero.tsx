@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-import lovelyPic from "@/assets/lovelypic.png";
+import lovelyPic from "@/assets/couplefriend.png";
 import { COUPLE, HERO } from "@/config/love";
 
 export function Hero() {
@@ -11,38 +11,22 @@ export function Hero() {
     >
       <div className="mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-8 md:grid-cols-2 md:gap-12 lg:gap-20">
         <motion.div
-          initial={{ opacity: 0, x: -32, scale: 0.97 }}
-          animate={{ opacity: 1, x: 0, scale: 1 }}
-          transition={{ duration: 1.1, ease: "easeOut" }}
-          className="relative order-1 flex w-full items-center justify-center"
-        >
-          <div className="absolute h-[72%] w-[72%] rounded-full bg-[oklch(0.86_0.13_350/0.24)] blur-3xl" />
-          <img
-            src={lovelyPic}
-            alt="A couple sharing a romantic moment"
-            width={1536}
-            height={1024}
-            className="relative z-10 block aspect-[4/3] h-auto w-full max-w-2xl rounded-[1.5rem] object-cover object-center mix-blend-lighten drop-shadow-[0_0_70px_oklch(0.68_0.16_350/0.45)] sm:rounded-[2.5rem]"
-          />
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, x: 32, y: 16 }}
+          initial={{ opacity: 0, x: -32, y: 16 }}
           animate={{ opacity: 1, x: 0, y: 0 }}
           transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
-          className="relative z-20 order-2 mx-auto w-full max-w-xl p-2 text-center sm:p-6 md:mx-0 md:pl-8 md:text-left lg:pl-12"
+          className="relative z-20 order-1 mx-auto w-full max-w-xl p-2 text-center sm:p-6 md:max-w-lg md:justify-self-center md:pr-8 md:text-left lg:pr-12"
         >
           <div className="pointer-events-none absolute inset-x-[-0.75rem] inset-y-[-1rem] -z-10 bg-[radial-gradient(ellipse_at_center,oklch(0.99_0.03_350/0.62)_0%,transparent_72%)]" />
 
-          <p className="text-readable mb-4 text-xs font-semibold tracking-[0.28em] text-foreground uppercase sm:tracking-[0.45em]">
+          <p className="mb-4 text-xs font-semibold tracking-[0.28em] text-[#17031f] uppercase sm:tracking-[0.45em]">
             {COUPLE.names}
           </p>
 
-          <h1 className="font-display text-readable text-4xl leading-[1.05] font-medium text-foreground text-balance sm:text-6xl md:text-7xl">
+          <h1 className="font-display text-4xl leading-[1.05] font-medium text-[#17031f] text-balance sm:text-6xl md:text-7xl">
             {HERO.heading}
           </h1>
 
-          <p className="text-readable mx-auto mt-5 max-w-md text-sm font-medium leading-relaxed text-foreground sm:text-lg md:mx-0 md:mt-6">
+          <p className="mx-auto mt-5 max-w-md text-sm font-medium leading-relaxed text-[#17031f] sm:text-lg md:mx-0 md:mt-6">
             {HERO.subheading}
           </p>
 
@@ -61,6 +45,22 @@ export function Hero() {
               </span>
             </motion.a>
           </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, x: 32, scale: 0.97 }}
+          animate={{ opacity: 1, x: 0, scale: 1 }}
+          transition={{ duration: 1.1, delay: 0.2, ease: "easeOut" }}
+          className="relative order-2 flex w-full items-center justify-center"
+        >
+          <div className="absolute h-[72%] w-[72%] rounded-full bg-[oklch(0.86_0.13_350/0.24)] blur-3xl" />
+          <img
+            src={lovelyPic}
+            alt="A couple sharing a romantic moment"
+            width={1536}
+            height={1024}
+            className="relative z-10 block aspect-[4/3] h-auto w-full max-w-2xl rounded-[1.5rem] object-cover object-center mix-blend-lighten drop-shadow-[0_0_70px_oklch(0.68_0.16_350/0.45)] sm:rounded-[2.5rem]"
+          />
         </motion.div>
       </div>
 

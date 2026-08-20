@@ -85,7 +85,7 @@ export function FinalCTA() {
         </p>
       </motion.div>
 
-      <footer className="text-readable absolute inset-x-0 bottom-6 z-10 px-5 text-center text-[11px] font-semibold tracking-[0.28em] text-foreground uppercase">
+      <footer className="text-readable absolute inset-x-0 bottom-6 z-10 px-5 text-center text-sm font-semibold tracking-[0.28em] text-foreground uppercase sm:text-base">
         Powered by Techvaseegrah Team
       </footer>
     </section>
