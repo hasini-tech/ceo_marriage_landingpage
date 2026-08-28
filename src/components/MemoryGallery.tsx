@@ -1,21 +1,43 @@
 import { motion } from "framer-motion";
 import { useRef, useState } from "react";
 
-import mem1 from "@/assets/mem-1.jpg";
+import picture from "@/assets/picture.png";
+import picture3 from "@/assets/picture3.png";
+import picture4 from "@/assets/picture4.png";
 import mem2 from "@/assets/mem-2.jpg";
 import mem3 from "@/assets/mem-3.jpg";
-import mem4 from "@/assets/mem-4.jpg";
 import { SectionHeading } from "./SectionHeading";
 
 /** Swap these for your own photos — same shape, nothing else to change. */
-const MEMORIES = [
-  { src: mem1, caption: "The temple corridor", note: "Where it all began" },
-  { src: mem2, caption: "The ring", note: "A quiet yes" },
-  { src: mem3, caption: "Jasmine & lights", note: "Our celebration" },
-  { src: mem4, caption: "Us, laughing", note: "Everyday joy" },
+type Memory = {
+  src: string;
+  mobileSrc?: string;
+  caption: string;
+  note: string;
+  objectPosition: string;
+};
+
+const MEMORIES: Memory[] = [
+  {
+    src: picture3,
+    mobileSrc: picture,
+    caption: "The temple corridor",
+    note: "Where it all began",
+    objectPosition: "center 22%",
+  },
+  { src: mem2, caption: "The ring", note: "A quiet yes", objectPosition: "center 48%" },
+  { src: mem3, caption: "Jasmine & lights", note: "Our celebration", objectPosition: "center 50%" },
+  { src: picture4, caption: "Us, together", note: "Everyday joy", objectPosition: "center 50%" },
 ];
 
-function TiltCard({ src, caption, note, index }: (typeof MEMORIES)[number] & { index: number }) {
+function TiltCard({
+  src,
+  mobileSrc,
+  caption,
+  note,
+  objectPosition,
+  index,
+}: Memory & { index: number }) {
   const ref = useRef<HTMLDivElement>(null);
   const [tilt, setTilt] = useState({ x: 0, y: 0 });
 
@@ -39,21 +61,33 @@ function TiltCard({ src, caption, note, index }: (typeof MEMORIES)[number] & { i
       transition={{ duration: 0.8, delay: index * 0.1 }}
       animate={{ rotateX: tilt.x, rotateY: tilt.y, scale: tilt.x || tilt.y ? 1.04 : 1 }}
       style={{ transformStyle: "preserve-3d", perspective: 900 }}
-      className="glass-pink group relative overflow-hidden rounded-3xl p-3"
+      className="glass-pink group relative min-w-0 overflow-hidden rounded-3xl p-3"
     >
-      <div className="overflow-hidden rounded-2xl">
-        <img
-          src={src}
-          alt={caption}
-          loading="lazy"
-          width={900}
-          height={1100}
-          className="h-72 w-full object-cover transition-transform duration-700 group-hover:scale-110 sm:h-80"
-        />
+      <div className="aspect-[4/5] overflow-hidden rounded-2xl">
+        <picture className="block h-full w-full">
+          {mobileSrc && <source media="(max-width: 767px)" srcSet={mobileSrc} />}
+          <img
+            src={src}
+            alt={caption}
+            loading="lazy"
+            width={900}
+            height={1100}
+            sizes="(max-width: 639px) calc(100vw - 2.5rem), (max-width: 1023px) calc(50vw - 2rem), 25vw"
+            style={{ objectPosition }}
+            className="block h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+          />
+        </picture>
       </div>
-      <div className="flex items-baseline justify-between px-2 pt-4 pb-2" style={{ transform: "translateZ(40px)" }}>
-        <span className="font-display text-readable text-lg font-medium text-foreground">{caption}</span>
-        <span className="text-readable text-[0.65rem] font-semibold tracking-[0.25em] text-foreground uppercase">{note}</span>
+      <div
+        className="flex items-baseline justify-between px-2 pt-4 pb-2"
+        style={{ transform: "translateZ(40px)" }}
+      >
+        <span className="font-display text-readable text-lg font-medium text-foreground">
+          {caption}
+        </span>
+        <span className="text-readable text-[0.65rem] font-semibold tracking-[0.25em] text-foreground uppercase">
+          {note}
+        </span>
       </div>
     </motion.div>
   );

@@ -9,7 +9,7 @@ import { LoveStory } from "@/components/LoveStory";
 import { MemoryGallery } from "@/components/MemoryGallery";
 import { Navbar } from "@/components/Navbar";
 
-const title = "Sreekarrthikeyan & prashantini — Two Hearts, One Beautiful Journey";
+const title = "Sreekarrthikeyan & prashanthini  — Two Hearts, One Beautiful Journey";
 const description =
   "A cinematic temple engagement invitation: our love story, memories, the ring, and a countdown to forever.";
 
