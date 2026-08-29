@@ -2,8 +2,7 @@ import { Canvas } from "@react-three/fiber";
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import { Suspense } from "react";
 
-import templeBg from "@/assets/bgtemp.png";
-import lovelyPic from "@/assets/lovelypic.png";
+import bgtemp from "@/assets/bgtemp.png";
 import { FloatingHeart } from "@/components/FloatingHeart";
 import { LoveBubble } from "@/components/LoveBubble";
 import { useIsCompact, useMounted, usePointerRef } from "@/hooks/usePointer";
@@ -11,8 +10,7 @@ import { Particles } from "./Particles";
 import { StudioEnv } from "./StudioEnv";
 
 /**
- * One continuous temple environment behind the whole page:
- * a parallaxed photographic backdrop plus a fixed WebGL layer of
+ * A responsive photographic background with a fixed WebGL layer of
  * hearts, glass love-bubbles, petals and pink light motes.
  */
 export function TempleScene() {
@@ -31,21 +29,13 @@ export function TempleScene() {
   return (
     <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden bg-[oklch(0.97_0.03_350)]">
       <motion.img
-        src={templeBg}
-        alt="Grand Indian temple lit warmly at twilight"
-        width={537}
-        height={360}
-        style={{ y: bgY, scale: bgScale }}
-        className="absolute inset-0 h-full w-full object-cover object-center will-change-transform"
-      />
-      <motion.img
-        src={lovelyPic}
+        src={bgtemp}
         alt=""
         aria-hidden="true"
-        width={1536}
+        width={1535}
         height={1024}
         style={{ y: bgY, scale: bgScale }}
-        className="absolute inset-0 h-full w-full object-cover object-center opacity-20 mix-blend-lighten will-change-transform"
+        className="absolute inset-0 h-full w-full object-cover object-center will-change-transform"
       />
       {mounted && (
         <Canvas

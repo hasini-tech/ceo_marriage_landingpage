@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-import ringImage from "@/assets/testing.png";
+import ringImage from "@/assets/savethedate.png";
 import { COUPLE } from "@/config/love";
 import { SectionHeading } from "./SectionHeading";
 

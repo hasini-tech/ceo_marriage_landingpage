@@ -191,3 +191,250 @@
     scroll-behavior: smooth;
   }
 }
+
+/* A loose stack of printed photographs, inspired by a table-top memory board. */
+.memory-collage {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  height: clamp(18rem, 34vw, 30rem);
+  margin-inline: auto;
+  overflow: hidden;
+}
+
+.memory-polaroid {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  aspect-ratio: 1.42;
+  padding: clamp(0.35rem, 0.7vw, 0.7rem) clamp(0.35rem, 0.7vw, 0.7rem) clamp(0.6rem, 1vw, 0.9rem);
+  overflow: hidden;
+  border: 1px solid oklch(0.82 0.025 350 / 0.65);
+  background: oklch(0.99 0.008 80 / 0.98);
+  box-shadow:
+    0 1.1rem 1.6rem oklch(0.2 0.04 350 / 0.25),
+    0 0.2rem 0.35rem oklch(0.2 0.04 350 / 0.22);
+  transform-origin: center;
+  transition: box-shadow 220ms ease;
+  will-change: transform;
+}
+
+.memory-polaroid:hover {
+  z-index: 30;
+  box-shadow:
+    0 1.6rem 2.3rem oklch(0.2 0.04 350 / 0.34),
+    0 0.25rem 0.45rem oklch(0.2 0.04 350 / 0.22);
+}
+
+.memory-polaroid__photo {
+  flex: 1 1 auto;
+  min-height: 0;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  background: oklch(0.88 0.025 350);
+}
+
+.memory-polaroid--1 {
+  top: 2%;
+  left: 1.5%;
+  z-index: 4;
+  width: 23%;
+}
+
+.memory-polaroid--2 {
+  top: 0;
+  left: 21.5%;
+  z-index: 3;
+  width: 24%;
+}
+
+.memory-polaroid--3 {
+  top: -1%;
+  left: 42%;
+  z-index: 5;
+  width: 23.5%;
+}
+
+.memory-polaroid--4 {
+  top: 1%;
+  right: 1.5%;
+  z-index: 2;
+  width: 22.5%;
+}
+
+.memory-polaroid--5 {
+  top: 40%;
+  left: 1.5%;
+  z-index: 8;
+  width: 22%;
+}
+
+.memory-polaroid--6 {
+  top: 39%;
+  left: 21.5%;
+  z-index: 7;
+  width: 24%;
+}
+
+.memory-polaroid--7 {
+  top: 43%;
+  left: 42%;
+  z-index: 9;
+  width: 23.5%;
+}
+
+.memory-polaroid--8 {
+  top: 40%;
+  right: 1.5%;
+  z-index: 6;
+  width: 22.5%;
+}
+
+@media (max-width: 767px) {
+  .memory-collage {
+    display: grid;
+    height: auto;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    overflow: visible;
+    padding: 1rem;
+  }
+
+  .memory-polaroid,
+  .memory-polaroid--1,
+  .memory-polaroid--2,
+  .memory-polaroid--3,
+  .memory-polaroid--4,
+  .memory-polaroid--5,
+  .memory-polaroid--6,
+  .memory-polaroid--7,
+  .memory-polaroid--8 {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    aspect-ratio: 1.18;
+  }
+
+  .memory-polaroid__photo {
+    aspect-ratio: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .memory-polaroid {
+    transition: none;
+  }
+}
+
+/* Editorial collage: the copy stays in the quiet space between the images. */
+.editorial-gallery {
+  width: 100%;
+  padding: clamp(1rem, 4vw, 3rem) 0;
+}
+
+.editorial-collage {
+  position: relative;
+  width: min(calc(100% - 2rem), 72rem);
+  aspect-ratio: 1.5;
+  margin-inline: auto;
+  overflow: hidden;
+  container-type: inline-size;
+}
+
+.editorial-copy {
+  position: absolute;
+  top: 36%;
+  left: 34%;
+  z-index: 30;
+  width: 35%;
+  color: oklch(0.45 0.025 350);
+  font-family: var(--font-display);
+  text-align: center;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+.editorial-copy p {
+  margin: 0;
+  font-size: clamp(0.78rem, 2.1cqw, 1.55rem);
+  line-height: 1.14;
+  letter-spacing: 0.04em;
+}
+
+.editorial-copy span {
+  display: block;
+  margin-top: 0.6em;
+  font-family: var(--font-body);
+  font-size: clamp(0.4rem, 0.85cqw, 0.7rem);
+  letter-spacing: 0.08em;
+  text-transform: none;
+}
+
+.editorial-photo {
+  position: absolute;
+  top: var(--photo-top);
+  left: var(--photo-left);
+  z-index: var(--photo-z);
+  display: block;
+  width: var(--photo-width);
+  height: var(--photo-height);
+  margin: 0;
+  overflow: hidden;
+  background: oklch(0.94 0.01 350);
+  transform-origin: center;
+  transition: box-shadow 220ms ease;
+  will-change: transform;
+}
+
+.editorial-photo:hover {
+  z-index: 40;
+  box-shadow: 0 0.8rem 1.5rem oklch(0.2 0.03 350 / 0.2);
+}
+
+.editorial-photo__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 767px) {
+  .editorial-gallery {
+    padding: 0.75rem 0;
+  }
+
+  .editorial-collage {
+    width: calc(100% - 1.5rem);
+    aspect-ratio: 1.5;
+    overflow: hidden;
+  }
+
+  .editorial-copy {
+    position: absolute;
+    top: 36%;
+    left: 34%;
+    width: 35%;
+    padding: 0;
+  }
+
+  .editorial-copy p {
+    font-size: clamp(0.58rem, 2.1cqw, 1.55rem);
+  }
+
+  .editorial-copy span {
+    margin-top: 0.6em;
+    font-size: clamp(0.34rem, 0.85cqw, 0.7rem);
+  }
+
+  .editorial-photo {
+    position: absolute;
+    top: var(--photo-top);
+    left: var(--photo-left);
+    z-index: var(--photo-z);
+    width: var(--photo-width);
+    height: var(--photo-height);
+    aspect-ratio: auto;
+  }
+}
