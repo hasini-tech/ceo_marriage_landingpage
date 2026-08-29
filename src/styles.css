@@ -297,9 +297,9 @@
     display: grid;
     height: auto;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1rem;
+    gap: 1.5rem;
     overflow: visible;
-    padding: 1rem;
+    padding: 0.25rem;
   }
 
   .memory-polaroid,
@@ -314,14 +314,13 @@
     position: relative;
     inset: auto;
     width: 100%;
-    aspect-ratio: 1.18;
+    aspect-ratio: 0.9;   /* taller cards = bigger photos */
   }
 
   .memory-polaroid__photo {
     aspect-ratio: auto;
   }
 }
-
 @media (prefers-reduced-motion: reduce) {
   .memory-polaroid {
     transition: none;
