@@ -16,7 +16,7 @@ export function FinalCTA() {
   const hearts = compact ? 4 : 9;
 
   return (
-    <section className="relative flex min-h-[90svh] items-center justify-center overflow-hidden px-5 py-28 text-center">
+    <section className="final-cta relative flex min-h-[90svh] items-center justify-center overflow-hidden px-5 py-28 text-center">
       {mounted && (
         <div className="pointer-events-none absolute inset-0">
           <Canvas
@@ -61,7 +61,7 @@ export function FinalCTA() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.4 }}
         transition={{ duration: 1 }}
-        className="relative z-10 max-w-2xl"
+        className="final-cta__content relative z-10 max-w-2xl"
       >
         <h2 className="font-display text-readable text-glow text-4xl leading-tight font-medium text-foreground text-balance sm:text-6xl">
           Forever Starts Here ❤️
