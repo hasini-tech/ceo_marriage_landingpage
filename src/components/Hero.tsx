@@ -76,6 +76,10 @@ export function Hero() {
               alt="A couple sharing a romantic moment"
               width={1536}
               height={1024}
+              loading="eager"
+              decoding="async"
+              fetchPriority="high"
+              sizes="(max-width: 767px) 100vw, (max-width: 1280px) 55vw, 768px"
               className="block aspect-[4/3] h-auto w-full rounded-[1.5rem] object-cover object-center mix-blend-lighten drop-shadow-[0_0_70px_oklch(0.68_0.16_350/0.45)] sm:rounded-[2.5rem] md:h-full md:max-w-none"
             />
           </picture>

@@ -34,6 +34,9 @@ export function TempleScene() {
         aria-hidden="true"
         width={1535}
         height={1024}
+        loading="eager"
+        decoding="async"
+        fetchPriority="high"
         style={{ y: bgY, scale: bgScale }}
         className="absolute inset-0 h-full w-full object-cover object-center will-change-transform"
       />

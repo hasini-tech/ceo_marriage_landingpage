@@ -70,7 +70,9 @@ export function FinalCTA() {
           Join us at {COUPLE.venue} as we begin the rest of our lives together.
         </p>
         <motion.a
-          href="#countdown"
+          href="https://rkconventioncenter.in/"
+          target="_blank"
+          rel="noreferrer"
           whileHover={{ scale: 1.06, rotateX: -8, rotateY: 6 }}
           whileTap={{ scale: 0.97 }}
           transition={{ type: "spring", stiffness: 300, damping: 18 }}

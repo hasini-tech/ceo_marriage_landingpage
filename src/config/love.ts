@@ -11,7 +11,7 @@ export const EVENT_DATE_LABEL = "Monday, 7 September 2026 · 6:30 AM ";
 export const COUPLE = {
   names: "Sreekarrthikeyan & prashanthini ",
   logo: "Our Love Story",
-  venue: "Sri Ananta Temple, Chennai",
+  venue: "4/111, East Coast Rd, Mahatma Gandhi Nagar, Neelankarai, Chennai, Tamil Nadu 600115",
 };
 
 export const HERO = {

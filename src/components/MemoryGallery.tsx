@@ -16,19 +16,24 @@ import ring from "@/assets/say.jpeg";
 import saveTheDate from "@/assets/lovelypic.png";
 import say from "@/assets/say.jpeg";
 
+type Position = {
+  top: number;
+  left: number;
+  width: number;
+  height: number;
+  z?: number;
+};
+
 type Memory = {
   src: string;
   caption: string;
   note: string;
   objectPosition: string;
   rotation: number;
-  position: {
-    top: number;
-    left: number;
-    width: number;
-    height: number;
-    z: number;
-  };
+  /** Desktop / tablet layout (percentages of .editorial-collage) */
+  position: Position & { z: number };
+  /** Mobile layout override (percentages of .editorial-collage on small screens) */
+  positionMobile: Position;
 };
 
 const MEMORIES: Memory[] = [
@@ -38,7 +43,8 @@ const MEMORIES: Memory[] = [
     note: "Where it all began",
     objectPosition: "center center",
     rotation: -2,
-    position: { top: 3, left: 2, width: 10, height: 22, z: 2 },
+    position: { top: 4, left: 1, width: 10, height: 24, z: 2 },
+    positionMobile: { top: 2, left: 2, width: 26, height: 12 },
   },
   {
     src: picture,
@@ -46,7 +52,8 @@ const MEMORIES: Memory[] = [
     note: "Side by side",
     objectPosition: "center 22%",
     rotation: -1,
-    position: { top: 3, left: 13, width: 19, height: 43, z: 4 },
+    position: { top: 4, left: 13, width: 19, height: 48, z: 4 },
+    positionMobile: { top: 1, left: 30, width: 40, height: 22 },
   },
   {
     src: picture4,
@@ -54,7 +61,8 @@ const MEMORIES: Memory[] = [
     note: "Just us two",
     objectPosition: "center 35%",
     rotation: 1,
-    position: { top: 8, left: 29, width: 11, height: 23, z: 3 },
+    position: { top: 6, left: 32, width: 9, height: 30, z: 3 },
+    positionMobile: { top: 2, left: 72, width: 26, height: 15 },
   },
   {
     src: heartHands,
@@ -62,7 +70,8 @@ const MEMORIES: Memory[] = [
     note: "One promise",
     objectPosition: "center 25%",
     rotation: 0,
-    position: { top: 17, left: 48, width: 10, height: 16, z: 5 },
+    position: { top: 20, left: 47, width: 8, height: 16, z: 5 },
+    positionMobile: { top: 14, left: 2, width: 22, height: 9 },
   },
   {
     src: natural,
@@ -70,7 +79,8 @@ const MEMORIES: Memory[] = [
     note: "The little things",
     objectPosition: "center center",
     rotation: 1,
-    position: { top: 4, left: 60, width: 21, height: 25, z: 2 },
+    position: { top: 5, left: 61, width: 21, height: 29, z: 2 },
+    positionMobile: { top: 14, left: 60, width: 38, height: 16 },
   },
   {
     src: saveTheDate,
@@ -78,7 +88,8 @@ const MEMORIES: Memory[] = [
     note: "A lifetime to come",
     objectPosition: "center center",
     rotation: 0,
-    position: { top: 5, left: 82, width: 15, height: 18, z: 1 },
+    position: { top: 6, left: 83, width: 14, height: 20, z: 1 },
+    positionMobile: { top: 24, left: 25, width: 32, height: 13 },
   },
   {
     src: hyperHead,
@@ -86,7 +97,8 @@ const MEMORIES: Memory[] = [
     note: "Everywhere with you",
     objectPosition: "center 56%",
     rotation: 0,
-    position: { top: 52, left: 18, width: 17, height: 28, z: 3 },
+    position: { top: 58, left: 18, width: 17, height: 32, z: 3 },
+    positionMobile: { top: 48, left: 2, width: 44, height: 18 },
   },
   {
     src: say,
@@ -94,7 +106,8 @@ const MEMORIES: Memory[] = [
     note: "Always listening",
     objectPosition: "center center",
     rotation: -1,
-    position: { top: 56, left: 36, width: 12, height: 17, z: 2 },
+    position: { top: 58, left: 35, width: 12, height: 24, z: 2 },
+    positionMobile: { top: 44, left: 48, width: 24, height: 12 },
   },
   {
     src: coupleFriend,
@@ -102,7 +115,8 @@ const MEMORIES: Memory[] = [
     note: "A lifetime together",
     objectPosition: "center 36%",
     rotation: 0,
-    position: { top: 62, left: 49, width: 21, height: 27, z: 4 },
+    position: { top: 69, left: 49, width: 21, height: 25, z: 4 },
+    positionMobile: { top: 57, left: 48, width: 50, height: 16 },
   },
   {
     src: lovelyPic,
@@ -110,7 +124,8 @@ const MEMORIES: Memory[] = [
     note: "Love in every frame",
     objectPosition: "center center",
     rotation: 1,
-    position: { top: 51, left: 70, width: 12, height: 25, z: 3 },
+    position: { top: 57, left: 71, width: 12, height: 28, z: 3 },
+    positionMobile: { top: 68, left: 2, width: 44, height: 15 },
   },
   {
     src: heard,
@@ -118,7 +133,8 @@ const MEMORIES: Memory[] = [
     note: "Surrounded by love",
     objectPosition: "center 38%",
     rotation: -1,
-    position: { top: 76, left: 78, width: 10, height: 16, z: 5 },
+    position: { top: 87, left: 1, width: 13, height: 14, z: 5 },
+    positionMobile: { top: 76, left: 48, width: 24, height: 10 },
   },
   {
     src: bike,
@@ -126,7 +142,8 @@ const MEMORIES: Memory[] = [
     note: "Life is better together",
     objectPosition: "center 43%",
     rotation: 1,
-    position: { top: 77, left: 3, width: 13, height: 17, z: 2 },
+    position: { top: 89, left: 31, width: 12, height: 12, z: 2 },
+    positionMobile: { top: 87, left: 2, width: 30, height: 11 },
   },
   {
     src: moment,
@@ -134,7 +151,8 @@ const MEMORIES: Memory[] = [
     note: "Big memories",
     objectPosition: "center 40%",
     rotation: -1,
-    position: { top: 80, left: 31, width: 15, height: 14, z: 2 },
+    position: { top: 89, left: 64, width: 9, height: 12, z: 2 },
+    positionMobile: { top: 87, left: 34, width: 30, height: 11 },
   },
   {
     src: ring,
@@ -142,7 +160,8 @@ const MEMORIES: Memory[] = [
     note: "A quiet yes",
     objectPosition: "center center",
     rotation: 0,
-    position: { top: 80, left: 64, width: 12, height: 14, z: 4 },
+    position: { top: 87, left: 78, width: 12, height: 13, z: 4 },
+    positionMobile: { top: 87, left: 66, width: 30, height: 11 },
   },
 ];
 
@@ -153,6 +172,7 @@ function EditorialPhoto({
   objectPosition,
   rotation,
   position,
+  positionMobile,
   index,
 }: Memory & { index: number }) {
   const ref = useRef<HTMLElement>(null);
@@ -174,6 +194,10 @@ function EditorialPhoto({
     "--photo-width": `${position.width}%`,
     "--photo-height": `${position.height}%`,
     "--photo-z": position.z,
+    "--photo-top-m": `${positionMobile.top}%`,
+    "--photo-left-m": `${positionMobile.left}%`,
+    "--photo-width-m": `${positionMobile.width}%`,
+    "--photo-height-m": `${positionMobile.height}%`,
   } as CSSProperties;
 
   return (
