@@ -1,4 +1,4 @@
-import { Music2, Pause, Play, Volume2, VolumeX } from "lucide-react";
+import { Music2, Volume2, VolumeX } from "lucide-react";
 import { useCallback, useEffect, useRef, useState } from "react";
 
 const MUSIC_SRC = "/audio/aaha-kalyanam.mp3";
@@ -11,7 +11,6 @@ const MUSIC_SRC = "/audio/aaha-kalyanam.mp3";
 export function BackgroundMusic() {
   const audioRef = useRef<HTMLAudioElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [needsInteraction, setNeedsInteraction] = useState(false);
   const [hasError, setHasError] = useState(false);
 
   const tryToPlay = useCallback(() => {
@@ -23,12 +22,10 @@ export function BackgroundMusic() {
       .play()
       .then(() => {
         setIsPlaying(true);
-        setNeedsInteraction(false);
       })
       .catch(() => {
         // Audible autoplay is commonly blocked until the visitor interacts.
         setIsPlaying(false);
-        setNeedsInteraction(true);
       });
   }, []);
 
@@ -69,14 +66,6 @@ export function BackgroundMusic() {
     }
   };
 
-  const status = hasError
-    ? "Add song file"
-    : isPlaying
-      ? "Now playing"
-      : needsInteraction
-        ? "Tap to play"
-        : "Music off";
-
   return (
     <div className="background-music">
       <audio
@@ -88,7 +77,6 @@ export function BackgroundMusic() {
         onError={() => {
           setHasError(true);
           setIsPlaying(false);
-          setNeedsInteraction(false);
         }}
         onPause={() => setIsPlaying(false)}
         onPlay={() => setIsPlaying(true)}
@@ -97,6 +85,7 @@ export function BackgroundMusic() {
       <button
         type="button"
         className="background-music__button"
+        title="Aaha Kalyanam — play or pause"
         aria-label={isPlaying ? "Pause Aaha Kalyanam" : "Play Aaha Kalyanam"}
         aria-pressed={isPlaying}
         onClick={togglePlayback}
@@ -109,13 +98,6 @@ export function BackgroundMusic() {
           ) : (
             <VolumeX size={17} />
           )}
-        </span>
-        <span className="background-music__copy">
-          <span className="background-music__status">{status}</span>
-          <span className="background-music__title">Aaha Kalyanam</span>
-        </span>
-        <span className="background-music__action" aria-hidden="true">
-          {isPlaying ? <Pause size={13} /> : <Play size={13} />}
         </span>
       </button>
     </div>
