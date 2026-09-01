@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 
 import { TempleScene } from "@/components/3d/TempleScene";
 import { Countdown } from "@/components/Countdown";
+import { BackgroundMusic } from "@/components/BackgroundMusic";
 import { Engagement } from "@/components/Engagement";
 import { FinalCTA } from "@/components/FinalCTA";
 import { GiftReveal } from "@/components/GiftReveal";
@@ -35,7 +36,8 @@ function Index() {
 
   return (
     <main className="relative min-h-screen overflow-x-hidden">
-      <GiftReveal onComplete={completeIntro} />
+      <BackgroundMusic />
+      {!introComplete && <GiftReveal onComplete={completeIntro} />}
       <div
         aria-hidden={!introComplete}
         className={`landing-content ${introComplete ? "landing-content--ready" : ""}`}

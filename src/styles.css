@@ -558,7 +558,6 @@
   background:
     radial-gradient(circle at 50% 44%, oklch(0.38 0.12 350 / 0.4), transparent 32rem),
     linear-gradient(135deg, oklch(0.16 0.06 350), oklch(0.26 0.09 350) 52%, oklch(0.12 0.05 350));
-  animation: gift-reveal-exit 650ms 3.05s ease forwards;
 }
 
 .gift-reveal::before,
@@ -622,6 +621,48 @@
   font-size: clamp(1.1rem, 3vw, 1.35rem);
   font-style: italic;
   letter-spacing: 0.04em;
+}
+
+.gift-reveal__open {
+  display: inline-flex;
+  min-width: 12rem;
+  margin-top: 1.35rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  padding: 0.75rem 1.25rem;
+  border: 1px solid oklch(0.91 0.12 350 / 0.55);
+  border-radius: 999px;
+  color: oklch(0.98 0.02 350);
+  background: oklch(0.72 0.16 350 / 0.28);
+  box-shadow: 0 0.5rem 1.5rem oklch(0.06 0.03 350 / 0.22), inset 0 1px 0 oklch(1 0 0 / 0.18);
+  cursor: pointer;
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  animation: gift-copy-in 900ms 1.2s both cubic-bezier(0.22, 1, 0.36, 1);
+  transition: border-color 180ms ease, background-color 180ms ease, transform 180ms ease;
+}
+
+.gift-reveal__open:hover {
+  border-color: oklch(0.95 0.15 350 / 0.85);
+  background: oklch(0.78 0.18 350 / 0.48);
+  transform: translateY(-2px);
+}
+
+.gift-reveal__open:focus-visible {
+  outline: 2px solid oklch(0.95 0.15 350);
+  outline-offset: 3px;
+}
+
+.gift-reveal__open-note {
+  color: oklch(0.97 0.13 75);
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-style: italic;
+  letter-spacing: 0.04em;
+  text-transform: none;
 }
 
 .gift-stage {
@@ -954,6 +995,89 @@
   opacity: 1;
 }
 
+/* Background music control remains available while the invitation is open. */
+.background-music {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 110;
+}
+
+.background-music audio {
+  display: none;
+}
+
+.background-music__button {
+  display: inline-flex;
+  min-width: 11.5rem;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.65rem 0.75rem;
+  border: 1px solid oklch(0.9 0.1 350 / 0.38);
+  border-radius: 999px;
+  color: oklch(0.98 0.02 350);
+  background: oklch(0.16 0.06 350 / 0.72);
+  box-shadow: 0 0.75rem 2rem oklch(0.1 0.04 350 / 0.28), inset 0 1px 0 oklch(1 0 0 / 0.16);
+  backdrop-filter: blur(16px) saturate(140%);
+  cursor: pointer;
+  text-align: left;
+  transition: border-color 180ms ease, background-color 180ms ease, transform 180ms ease;
+}
+
+.background-music__button:hover {
+  border-color: oklch(0.9 0.14 350 / 0.68);
+  background: oklch(0.22 0.08 350 / 0.86);
+  transform: translateY(-2px);
+}
+
+.background-music__button:focus-visible {
+  outline: 2px solid oklch(0.9 0.14 350);
+  outline-offset: 3px;
+}
+
+.background-music__icon {
+  display: grid;
+  width: 2rem;
+  height: 2rem;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: 50%;
+  color: oklch(0.97 0.13 75);
+  background: oklch(0.72 0.16 350 / 0.3);
+}
+
+.background-music__copy {
+  display: flex;
+  min-width: 0;
+  flex: 1;
+  flex-direction: column;
+  gap: 0.08rem;
+}
+
+.background-music__status {
+  color: oklch(0.9 0.04 350 / 0.68);
+  font-size: 0.55rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.background-music__title {
+  overflow: hidden;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  line-height: 1.1;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.background-music__action {
+  display: grid;
+  place-items: center;
+  color: oklch(0.9 0.04 350 / 0.78);
+}
+
 @media (max-width: 767px) {
   .final-cta {
     min-height: 100svh;
@@ -982,6 +1106,18 @@
     bottom: 1.5rem;
     font-size: 0.58rem;
     letter-spacing: 0.2em;
+  }
+}
+
+@media (max-width: 480px) {
+  .background-music {
+    right: 0.75rem;
+    bottom: 0.75rem;
+    left: 0.75rem;
+  }
+
+  .background-music__button {
+    width: 100%;
   }
 }
 
@@ -1079,6 +1215,7 @@
   .gift-reveal__grain,
   .gift-reveal__eyebrow,
   .gift-reveal__caption,
+  .gift-reveal__open,
   .gift-box,
   .gift-box__shadow,
   .gift-box__well,

@@ -1,17 +1,8 @@
-import { useEffect } from "react";
-
 type GiftRevealProps = {
   onComplete: () => void;
 };
 
 export function GiftReveal({ onComplete }: GiftRevealProps) {
-  useEffect(() => {
-    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const timeout = window.setTimeout(onComplete, reducedMotion ? 250 : 3650);
-
-    return () => window.clearTimeout(timeout);
-  }, [onComplete]);
-
   return (
     <div className="gift-reveal" role="dialog" aria-modal="true" aria-label="Opening your surprise">
       <div className="gift-reveal__grain" aria-hidden="true" />
@@ -54,6 +45,11 @@ export function GiftReveal({ onComplete }: GiftRevealProps) {
         </div>
 
         <p className="gift-reveal__caption">Opening something beautiful...</p>
+
+        <button type="button" className="gift-reveal__open" onClick={onComplete}>
+          <span>Open invitation</span>
+          <span className="gift-reveal__open-note">with music</span>
+        </button>
       </div>
     </div>
   );
