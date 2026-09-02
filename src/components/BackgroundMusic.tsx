@@ -1,14 +1,18 @@
 import { Music2, Volume2, VolumeX } from "lucide-react";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { forwardRef, useCallback, useEffect, useImperativeHandle, useRef, useState } from "react";
 
-const MUSIC_SRC = "/audio/aaha-kalyanam.mp3";
+const MUSIC_SRC = "/audio/iyengaaruveetuazhagee.mp3";
+
+export type BackgroundMusicHandle = {
+  play: () => void;
+};
 
 /**
  * Starts the invitation music as soon as the browser allows it. Browsers may
  * reject audible autoplay, so the same control also starts playback on the
  * visitor's first tap or key press.
  */
-export function BackgroundMusic() {
+export const BackgroundMusic = forwardRef<BackgroundMusicHandle>(function BackgroundMusic(_, ref) {
   const audioRef = useRef<HTMLAudioElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [hasError, setHasError] = useState(false);
@@ -28,6 +32,8 @@ export function BackgroundMusic() {
         setIsPlaying(false);
       });
   }, []);
+
+  useImperativeHandle(ref, () => ({ play: tryToPlay }), [tryToPlay]);
 
   useEffect(() => {
     const audio = audioRef.current;
@@ -102,6 +108,6 @@ export function BackgroundMusic() {
       </button>
     </div>
   );
-}
+});
 
 export default BackgroundMusic;
