@@ -25,7 +25,7 @@ export function Countdown() {
   }, []);
 
   return (
-    <section id="countdown" className="relative mx-auto max-w-4xl px-5 py-28 text-center">
+    <section id="countdown" className="relative mx-auto max-w-4xl px-5 pt-35 pb-8 text-center">
       <SectionHeading kicker="Save The Date" title="Counting Down To Forever" />
 
       <div className="grid grid-cols-2 gap-4 sm:grid-cols-4 sm:gap-6">

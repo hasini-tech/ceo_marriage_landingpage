@@ -16,7 +16,7 @@ export function FinalCTA() {
   const hearts = compact ? 4 : 9;
 
   return (
-    <section className="final-cta relative flex min-h-[90svh] items-center justify-center overflow-hidden px-5 py-28 text-center">
+    <section className="final-cta relative flex min-h-0 items-center justify-center overflow-hidden px-5 pt-30 pb-28 text-center">
       {mounted && (
         <div className="pointer-events-none absolute inset-0">
           <Canvas
