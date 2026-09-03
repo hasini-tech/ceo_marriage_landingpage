@@ -10,6 +10,7 @@ import { Hero } from "@/components/Hero";
 import { LoveStory } from "@/components/LoveStory";
 import { MemoryGallery } from "@/components/MemoryGallery";
 import { Navbar } from "@/components/Navbar";
+import { OurJourneyPhotos } from "@/components/OurJourneyPhotos";
 import { useCallback, useRef, useState } from "react";
 
 const title = "Sreekarrthikeyan & prashanthini  — Two Hearts, One Beautiful Journey";
@@ -52,6 +53,7 @@ function Index() {
         <Navbar />
         <Hero />
         <LoveStory />
+        <OurJourneyPhotos />
         <Engagement />
         <MemoryGallery />
         <Countdown />
