@@ -58,8 +58,6 @@ export function OurJourneyPhotos() {
             <b>♥</b>
             <span />
           </div>
-
-          <p>From little moments to a lifetime together</p>
         </motion.div>
 
         <div className="journey-grid">
