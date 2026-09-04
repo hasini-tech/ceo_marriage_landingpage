@@ -6,7 +6,7 @@
 export const EVENT_DATE = new Date("2026-09-07T18:30:00+05:30");
 
 /** Human-readable label shown under the countdown. */
-export const EVENT_DATE_LABEL = "Monday, 7 September 2026 · 6:30 AM ";
+export const EVENT_DATE_LABEL = "Monday, 7 September 2026 · 6:30 PM ";
 
 export const COUPLE = {
   names: "Sreekarrthikeyan & prashanthini ",
